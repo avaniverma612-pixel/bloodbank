@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blood Bank Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f5f5f5; }
+        .navbar { background: #c0392b; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; }
+        .navbar h1 { color: white; font-size: 22px; }
+        .navbar a { color: white; text-decoration: none; margin-left: 20px; font-size: 15px; }
+        .navbar a:hover { text-decoration: underline; }
+        .container { padding: 40px; }
+        h2 { color: #c0392b; margin-bottom: 30px; }
+        .cards { display: flex; gap: 20px; flex-wrap: wrap; }
+        .card { background: white; border-radius: 10px; padding: 30px; width: 200px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-decoration: none; color: #333; transition: transform 0.2s; }
+        .card:hover { transform: translateY(-5px); }
+        .card .icon { font-size: 40px; margin-bottom: 10px; }
+        .card h3 { color: #c0392b; }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>🩸 Blood Bank Management System</h1>
+        <div>
+            <a href="/donors">Donors</a>
+            <a href="/stock">Blood Stock</a>
+            <a href="/requests">Requests</a>
+            <a href="/search">Search</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+    <div class="container">
+        <h2>Welcome, Admin!</h2>
+        <div class="cards">
+            <a href="/donors" class="card">
+                <div class="icon">👤</div>
+                <h3>Donors</h3>
+                <p>Manage donors</p>
+            </a>
+            <a href="/stock" class="card">
+                <div class="icon">🩸</div>
+                <h3>Blood Stock</h3>
+                <p>Check inventory</p>
+            </a>
+            <a href="/requests" class="card">
+                <div class="icon">📋</div>
+                <h3>Requests</h3>
+                <p>Blood requests</p>
+            </a>
+            <a href="/search" class="card">
+                <div class="icon">🔍</div>
+                <h3>Search</h3>
+                <p>Find donors</p>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Donors</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f5f5f5; }
+        .navbar { background: #c0392b; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; }
+        .navbar h1 { color: white; font-size: 22px; }
+        .navbar a { color: white; text-decoration: none; margin-left: 20px; }
+        .container { padding: 40px; }
+        h2 { color: #c0392b; margin-bottom: 20px; }
+        form { background: white; padding: 20px; border-radius: 10px; margin-bottom: 30px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); display: flex; flex-wrap: wrap; gap: 10px; }
+        input, select { padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px; }
+        button { padding: 10px 20px; background: #c0392b; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #a93226; }
+        table { width: 100%; background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-collapse: collapse; }
+        th { background: #c0392b; color: white; padding: 12px; text-align: left; }
+        td { padding: 12px; border-bottom: 1px solid #eee; }
+        tr:hover { background: #fdf2f2; }
+        .delete { color: red; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>🩸 Blood Bank Management System</h1>
+        <div>
+            <a href="/">Dashboard</a>
+            <a href="/donors">Donors</a>
+            <a href="/stock">Blood Stock</a>
+            <a href="/requests">Requests</a>
+            <a href="/search">Search</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+    <div class="container">
+        <h2>👤 Donor Registration</h2>
+        <form method="POST" action="/add_donor">
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="number" name="age" placeholder="Age" required>
+            <select name="blood_group" required>
+                <option value="">Blood Group</option>
+                <option>A+</option><option>A-</option>
+                <option>B+</option><option>B-</option>
+                <option>O+</option><option>O-</option>
+                <option>AB+</option><option>AB-</option>
+            </select>
+            <input type="text" name="phone" placeholder="Phone">
+            <input type="email" name="email" placeholder="Email">
+            <input type="text" name="location" placeholder="Location">
+            <button type="submit">Add Donor</button>
+        </form>
+
+        <table>
+            <tr>
+                <th>ID</th><th>Name</th><th>Age</th><th>Blood Group</th>
+                <th>Phone</th><th>Location</th><th>Available</th><th>Action</th>
+            </tr>
+            {% for donor in donors %}
+            <tr>
+                <td>{{ donor.id }}</td>
+                <td>{{ donor.name }}</td>
+                <td>{{ donor.age }}</td>
+                <td>{{ donor.blood_group }}</td>
+                <td>{{ donor.phone }}</td>
+                <td>{{ donor.location }}</td>
+                <td>{{ 'Yes' if donor.available else 'No' }}</td>
+                <td><a href="/delete_donor/{{ donor.id }}" class="delete">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
