@@ -83,6 +83,3 @@ To simplify blood bank operations by bringing donor records, blood stock informa
 
 [GitHub Profile](https://github.com/avaniverma612-pixel)
 
-## ⚠️ Disclaimer
-
-This project is developed for educational purposes. It is not a substitute for verified medical advice or official blood bank procedures.
